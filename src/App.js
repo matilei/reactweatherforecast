@@ -1,5 +1,5 @@
 import React from 'react';
-import Front from './front';
+import Main from './main';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,7 +8,7 @@ import {
 
 function App() {
   return (
-    <Front />
+    <Main />
   );
 }
 

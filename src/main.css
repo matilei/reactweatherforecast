@@ -1,0 +1,17 @@
+body{
+    overflow-x: hidden;
+}
+.page-wrapper{
+    height: 100vh;
+    background: #b2bfd6;
+    margin: 0;
+}
+
+.header{
+    background-color: #e0e0e0;
+    position: sticky
+}
+
+.cityName-wrapper, .dayForecast-wrapper, .weekForecast-wrapper{
+    background: white;
+}
