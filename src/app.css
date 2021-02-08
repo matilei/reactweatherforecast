@@ -1,0 +1,30 @@
+body{
+    overflow-x: hidden;
+    background: #cad3e6;
+}
+
+.header{
+    background-color: #e0e0e0;
+    position: sticky
+}
+
+.cityName-wrapper, .dayForecast-wrapper, .weekForecast-wrapper,
+.radar-wrapper, .forecastInfo-wrapper, .aboutFirst-wrapper, .aboutSecond-wrapper, .saaennustetietoaPicture-wrapper{
+    background: white;
+}
+
+@media only screen and (max-width: 1100px) {
+    .sidebar, .header-paddingFront, .header-paddingBack{
+        display: none
+    }
+
+    .header-secondary, .saaennustetietoaPicture-wrapper{
+        display:flex;
+    }
+  }
+
+@media only screen and (min-width: 1100px) {
+    .header-secondary{
+        display: none;
+    }
+}
