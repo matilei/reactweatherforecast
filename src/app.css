@@ -1,11 +1,14 @@
 body{
     overflow-x: hidden;
-    background: #cad3e6;
+    background: #d4ddf1;
 }
 
 .header{
     background-color: #e0e0e0;
-    position: sticky
+}
+
+.active-sidebar{
+    border-left: 5px solid #5d5dff;
 }
 
 .cityName-wrapper, .dayForecast-wrapper, .weekForecast-wrapper,
@@ -13,13 +16,35 @@ body{
     background: white;
 }
 
+/* ---------------------------------------------------
+    MEDIAQUERIES
+  ----------------------------------------------------- */
 @media only screen and (max-width: 1100px) {
     .sidebar, .header-paddingFront, .header-paddingBack{
         display: none
     }
 
-    .header-secondary, .saaennustetietoaPicture-wrapper{
+    .header-secondary{
         display:flex;
+    }
+
+    .content-wrapper{
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .aboutFirst-wrapper{
+        margin-bottom: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .aboutSecond-wrapper{
+        margin-bottom: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
   }
 
@@ -27,4 +52,16 @@ body{
     .header-secondary{
         display: none;
     }
+
+    .content-wrapper{
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+
+    .aboutFirst-wrapper{
+        margin-right: 3rem;
+    }
 }
+
