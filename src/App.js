@@ -6,18 +6,21 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-do
 
 //Toimii sivun ympäryksenä, Switch näyttää painetun alasivun
 function App() {
+
   return (
     <Container fluid="true" className="page-wrapper">
       <Router>
         <Header />
         <Row fluid="true" className="content-wrapper">
           <Sidebar />
-          <Switch>
-            <Route exact path="/sadetutka" component={Radar}></Route>
-            <Route exact path="/saaennustetietoa" component={ForecastInfo}></Route>
-            <Route exact path="/tietoasivustosta" component={About}></Route>
-            <Route exact path="/" component={Front}></Route>
-          </Switch>
+          <Col fluid="true" className="wrapper">
+            <Switch>
+              <Route exact path="/sadetutka" component={Radar}></Route>
+              <Route exact path="/saaennustetietoa" component={ForecastInfo}></Route>
+              <Route exact path="/tietoasivustosta" component={About}></Route>
+              <Route exact path="/" component={Front}></Route>
+            </Switch>
+          </Col>
         </Row>
       </Router>
     </Container>
@@ -28,7 +31,7 @@ function App() {
 //Toimii sivun yläpalkkina
 function Header() {
   return (
-    <Container fluid fixed="top" className="header shadow">
+    <Container fluid className="header shadow">
       <Row>
         <Col className="header-paddingFront"></Col>
         <Col>
@@ -76,29 +79,31 @@ function Header() {
   );
 }
 
-//Toimii sivuston navigaatiosivupalkkina
+//Toimii sivuston sivupalkkina
 function Sidebar() {
 
   return (
-    <ListGroup className="sidebar mb-5 ml-5 mr-5">
+    <Col className="sidebar mr-3" lg={2.5}>
+      <Row className="sidebar-navigation">
+        <ListGroup className="mb-5 ml-5 mr-5 shadow">
+          <NavLink exact to="/" activeClassName="active-sidebar">
+            <ListGroup.Item className="mr-5 rounded text-primary" action >Etusivu</ListGroup.Item>
+          </NavLink>
 
-      <NavLink exact to="/" activeClassName="active-sidebar">
-        <ListGroup.Item className="mr-5 rounded text-primary" action >Etusivu</ListGroup.Item>
-      </NavLink>
+          <NavLink exact to="/sadetutka" activeClassName="active-sidebar">
+            <ListGroup.Item className="mr-5 rounded text-primary" action >Sadetutka</ListGroup.Item>
+          </NavLink>
 
-      <NavLink exact to="/sadetutka" activeClassName="active-sidebar">
-        <ListGroup.Item className="mr-5 rounded text-primary" action >Sadetutka</ListGroup.Item>
-      </NavLink>
+          <NavLink exact to="/saaennustetietoa" activeClassName="active-sidebar">
+            <ListGroup.Item className="mr-5 rounded text-primary" action >Sääennustetietoa</ListGroup.Item>
+          </NavLink>
 
-      <NavLink exact to="/saaennustetietoa" activeClassName="active-sidebar">
-        <ListGroup.Item className="mr-5 rounded text-primary" action >Sääennustetietoa</ListGroup.Item>
-      </NavLink>
-
-      <NavLink exact to="/tietoasivustosta" activeClassName="active-sidebar">
-        <ListGroup.Item className="mr-5 rounded text-primary" action >Tietoa sivustosta</ListGroup.Item>
-      </NavLink>
-
-    </ListGroup>
+          <NavLink exact to="/tietoasivustosta" activeClassName="active-sidebar">
+            <ListGroup.Item className="mr-5 rounded text-primary" action >Tietoa sivustosta</ListGroup.Item>
+          </NavLink>
+        </ListGroup>
+      </Row>
+    </Col>
   );
 }
 
@@ -107,103 +112,103 @@ function Front() {
   return (
     <Col fluid="true" className="front-wrapper">
 
-      <Row className="cityName-wrapper rounded mb-4">
+      <Row className="cityName-wrapper rounded mb-4 shadow">
         <Col>
           <h4 className="pt-3 pb-3 ml-2">Kaupungin nimi, Valtio</h4>
         </Col>
       </Row>
 
-      <Row className="dayForecast-wrapper rounded mb-4">
-        <Col>
+      <Row className="dayForecast-wrapper rounded mb-4 shadow">
+        <Col >
           <h6 className="pt-3 pb-1 ml-2">Tiistai 26.1 - Tuntiennuste</h6>
           <Row className="my-4 pr-4 pl-4">
-            <Col className="pt-4 pb-4 border">
-              <Col className="border"><Image src="/icons/Iconixar/clear.png" /></Col>
-              <Col className="border">a</Col>
-              <Col className="border">a</Col>
+            <Col className="pt-3 pb-3 border">
+              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2">0 °C</Col>
+              <Col className="center pt-2 pb-2">00:00</Col>
             </Col>
-            <Col className="pt-4 pb-4 border">
-              <Col className="border"><Image src="/icons/Iconixar/clear.png" /></Col>
-              <Col className="border">a</Col>
-              <Col className="border">a</Col>
+            <Col className="pt-3 pb-3 border">
+              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2">0 °C</Col>
+              <Col className="center pt-2 pb-2">00:00</Col>
             </Col>
-            <Col className="pt-4 pb-4 border">
-              <Col className="border"><Image src="/icons/Iconixar/clear.png" /></Col>
-              <Col className="border">a</Col>
-              <Col className="border">a</Col>
+            <Col className="pt-3 pb-3 border">
+              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2">0 °C</Col>
+              <Col className="center pt-2 pb-2">00:00</Col>
             </Col>
-            <Col className="pt-4 pb-4 border">
-              <Col className="border"><Image src="/icons/Iconixar/clear.png" /></Col>
-              <Col className="border">a</Col>
-              <Col className="border">a</Col>
+            <Col className="pt-3 pb-3 border">
+              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2">0 °C</Col>
+              <Col className="center pt-2 pb-2">00:00</Col>
             </Col>
-            <Col className="pt-4 pb-4 border">
-              <Col className="border"><Image src="/icons/Iconixar/clear.png" /></Col>
-              <Col className="border">a</Col>
-              <Col className="border">a</Col>
+            <Col className="pt-3 pb-3 border">
+              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2">0 °C</Col>
+              <Col className="center pt-2 pb-2">00:00</Col>
             </Col>
-            <Col className="pt-4 pb-4 border">
-              <Col className="border"><Image src="/icons/Iconixar/clear.png" /></Col>
-              <Col className="border">a</Col>
-              <Col className="border">a</Col>
+            <Col className="pt-3 pb-3 border">
+              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2">0 °C</Col>
+              <Col className="center pt-2 pb-2">00:00</Col>
             </Col>
-            <Col className="pt-4 pb-4 border">
-              <Col className="border"><Image src="/icons/Iconixar/clear.png" /></Col>
-              <Col className="border">a</Col>
-              <Col className="border">a</Col>
+            <Col className="pt-3 pb-3 border">
+              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2">0 °C</Col>
+              <Col className="center pt-2 pb-2">00:00</Col>
             </Col>
-            <Col className="pt-4 pb-4 border">
-              <Col className="border"><Image src="/icons/Iconixar/clear.png" /></Col>
-              <Col className="border">a</Col>
-              <Col className="border">a</Col>
+            <Col className="pt-3 pb-3 border">
+              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2">0 °C</Col>
+              <Col className="center pt-2 pb-2">00:00</Col>
             </Col>
           </Row>
         </Col>
       </Row>
 
-      <Row className="weekForecast-wrapper rounded">
+      <Row className="weekForecast-wrapper rounded shadow">
         <Col>
           <h6 className="pt-3 pb-1 ml-2">Lähipäivien ennuste</h6>
           <Row className="my-4 pr-4 pl-4">
-            <Col className="pt-4 pb-4 border">
-              <Col className="border"><Image src="/icons/Iconixar/clear.png" /></Col>
-              <Col className="border">a</Col>
-              <Col className="border">a</Col>
+            <Col className="pt-3 pb-3 border">
+              <Col className="center pt-2 pb-2">Ke</Col>
+              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2">0 °C</Col>
             </Col>
-            <Col className="pt-4 pb-4 border">
-              <Col className="border"><Image src="/icons/Iconixar/clear.png" /></Col>
-              <Col className="border">a</Col>
-              <Col className="border">a</Col>
+            <Col className="pt-3 pb-3 border">
+              <Col className="center pt-2 pb-2">To</Col>
+              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2">0 °C</Col>
             </Col>
-            <Col className="pt-4 pb-4 border">
-              <Col className="border"><Image src="/icons/Iconixar/clear.png" /></Col>
-              <Col className="border">a</Col>
-              <Col className="border">a</Col>
+            <Col className="pt-3 pb-3 border">
+              <Col className="center pt-2 pb-2">Pe</Col>
+              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2">0 °C</Col>
             </Col>
-            <Col className="pt-4 pb-4 border">
-              <Col className="border"><Image src="/icons/Iconixar/clear.png" /></Col>
-              <Col className="border">a</Col>
-              <Col className="border">a</Col>
+            <Col className="pt-3 pb-3 border">
+              <Col className="center pt-2 pb-2">La</Col>
+              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2">0 °C</Col>
             </Col>
-            <Col className="pt-4 pb-4 border">
-              <Col className="border"><Image src="/icons/Iconixar/clear.png" /></Col>
-              <Col className="border">a</Col>
-              <Col className="border">a</Col>
+            <Col className="pt-3 pb-3 border">
+              <Col className="center pt-2 pb-2">Su</Col>
+              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2">0 °C</Col>
             </Col>
-            <Col className="pt-4 pb-4 border">
-              <Col className="border"><Image src="/icons/Iconixar/clear.png" /></Col>
-              <Col className="border">a</Col>
-              <Col className="border">a</Col>
+            <Col className="pt-3 pb-3 border">
+              <Col className="center pt-2 pb-2">Ma</Col>
+              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2">0 °C</Col>
             </Col>
-            <Col className="pt-4 pb-4 border">
-              <Col className="border"><Image src="/icons/Iconixar/clear.png" /></Col>
-              <Col className="border">a</Col>
-              <Col className="border">a</Col>
+            <Col className="pt-3 pb-3 border">
+              <Col className="center pt-2 pb-2">Ti</Col>
+              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2">0 °C</Col>
             </Col>
-            <Col className="pt-4 pb-4 border">
-              <Col className="border"><Image src="/icons/Iconixar/clear.png" /></Col>
-              <Col className="border">a</Col>
-              <Col className="border">a</Col>
+            <Col className="pt-3 pb-3 border">
+              <Col className="center pt-2 pb-2">Ke</Col>
+              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2">0 °C</Col>
             </Col>
           </Row>
         </Col>
@@ -224,7 +229,7 @@ function Radar() {
 //Sääennustetietoa
 function ForecastInfo() {
   return (
-    <Col fluid="true" className="forecastInfo-wrapper pr-5 pl-5 pt-4 pb-4 rounded">
+    <Col fluid="true" className="forecastInfo-wrapper mb-5 pr-5 pl-5 pt-4 pb-4 rounded shadow">
       <Col>
         <h3>Sääennuste</h3>
         <p>Sääennuste muodostuu meteorologin tekemästä ennustuksesta, jossa käytetään monenlaisia säähavaintoja ja sääennustusmalleja.
@@ -255,7 +260,13 @@ function ForecastInfo() {
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor tristique nulla, ac pharetra nulla consectetur nec. Proin molestie nisl non tincidunt lacinia. Phasellus lobortis volutpat lacus a vulputate.
           Aenean euismod ipsum id gravida tincidunt. Suspendisse tempor dolor ex, ac fermentum quam cursus at.</p>
       </Col>
+
+      <Col className="m">
+        <a href="http://www.ilmatieteenlaitos.fi/saaennuste"><Image className="img-thumbnail border-link border-primary" src="/pictures/forecastinfo.jpg" fluid /></a>
+      </Col>
     </Col>
+
+
   );
 }
 
@@ -264,7 +275,7 @@ function About() {
   return (
     <Col fluid="true">
       <Row>
-        <Col fluid="true" className="aboutFirst-wrapper pr-5 pl-5 pt-4 pb-4 rounded">
+        <Col fluid="true" className="aboutFirst-wrapper mb-1 pr-5 pl-5 pt-4 pb-4 rounded shadow">
           <h5>Merkkien selitykset</h5>
           <br />
 
@@ -301,7 +312,7 @@ function About() {
             </tbody>
           </Table>
         </Col>
-        <Col fluid="true" className="aboutSecond-wrapper pr-5 pl-5 pt-4 pb-4 rounded">
+        <Col fluid="true" className="aboutSecond-wrapper mb-1 pr-5 pl-5 pt-4 pb-4 rounded shadow">
           <h5>Materiaali</h5>
           <hr />
 
