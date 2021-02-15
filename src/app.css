@@ -1,7 +1,10 @@
-body{
-    overflow-x: hidden;
-    background: #d4ddf1;
-}
+body { 
+    background: url(pictures/about.jpg) fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 
 .header{
     background-color: #e0e0e0;
@@ -10,7 +13,11 @@ body{
 .border-link{
     border-style: solid;
     border-width: 3px;
-    width: 235px;
+    width: 350px;
+}
+
+.border-link:hover{
+    opacity: 0.8;
 }
 
 .active-sidebar{
@@ -30,7 +37,7 @@ body{
 }
 
 /* ---------------------------------------------------
-    MEDIAQUERIES
+    MEDIA
   ----------------------------------------------------- */
 @media only screen and (max-width: 1250px) {
     .sidebar, .header-paddingFront, .header-paddingBack{
@@ -48,13 +55,7 @@ body{
         margin-right: 1rem;
     }
 
-    .aboutFirst-wrapper{
-        margin-bottom: 1rem;
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-
-    .aboutSecond-wrapper{
+    .aboutFirst-wrapper, .aboutSecond-wrapper{
         margin-bottom: 1rem;
         margin-left: 1rem;
         margin-right: 1rem;

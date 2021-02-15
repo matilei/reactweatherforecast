@@ -1,8 +1,19 @@
 import { React } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './app.css';
 import { Container, Row, Col, Button, Navbar, InputGroup, FormControl, ListGroup, Image, Table } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-dom";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './app.css';
+
+import radarPic from './pictures/radar.jpg';
+import forecastinfoPic from './pictures/forecastinfo.jpg';
+import clear from './Iconixar/clear.png';
+import clouds from './Iconixar/clouds.png';
+import mist from './Iconixar/mist.png';
+import night from './Iconixar/night.jpg';
+import rain from './Iconixar/rain.png';
+import snow from './Iconixar/snow.png';
+import thunderstorm from './Iconixar/thunderstorm.png';
 
 //Toimii sivun ympäryksenä, Switch näyttää painetun alasivun
 function App() {
@@ -123,42 +134,42 @@ function Front() {
           <h6 className="pt-3 pb-1 ml-2">Tiistai 26.1 - Tuntiennuste</h6>
           <Row className="my-4 pr-4 pl-4">
             <Col className="pt-3 pb-3 border">
-              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
               <Col className="center pt-2 pb-2">0 °C</Col>
               <Col className="center pt-2 pb-2">00:00</Col>
             </Col>
             <Col className="pt-3 pb-3 border">
-              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
               <Col className="center pt-2 pb-2">0 °C</Col>
               <Col className="center pt-2 pb-2">00:00</Col>
             </Col>
             <Col className="pt-3 pb-3 border">
-              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
               <Col className="center pt-2 pb-2">0 °C</Col>
               <Col className="center pt-2 pb-2">00:00</Col>
             </Col>
             <Col className="pt-3 pb-3 border">
-              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
               <Col className="center pt-2 pb-2">0 °C</Col>
               <Col className="center pt-2 pb-2">00:00</Col>
             </Col>
             <Col className="pt-3 pb-3 border">
-              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
               <Col className="center pt-2 pb-2">0 °C</Col>
               <Col className="center pt-2 pb-2">00:00</Col>
             </Col>
             <Col className="pt-3 pb-3 border">
-              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
               <Col className="center pt-2 pb-2">0 °C</Col>
               <Col className="center pt-2 pb-2">00:00</Col>
             </Col>
             <Col className="pt-3 pb-3 border">
-              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
               <Col className="center pt-2 pb-2">0 °C</Col>
               <Col className="center pt-2 pb-2">00:00</Col>
             </Col>
             <Col className="pt-3 pb-3 border">
-              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
               <Col className="center pt-2 pb-2">0 °C</Col>
               <Col className="center pt-2 pb-2">00:00</Col>
             </Col>
@@ -172,42 +183,42 @@ function Front() {
           <Row className="my-4 pr-4 pl-4">
             <Col className="pt-3 pb-3 border">
               <Col className="center pt-2 pb-2">Ke</Col>
-              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
               <Col className="center pt-2 pb-2">0 °C</Col>
             </Col>
             <Col className="pt-3 pb-3 border">
               <Col className="center pt-2 pb-2">To</Col>
-              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
               <Col className="center pt-2 pb-2">0 °C</Col>
             </Col>
             <Col className="pt-3 pb-3 border">
               <Col className="center pt-2 pb-2">Pe</Col>
-              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
               <Col className="center pt-2 pb-2">0 °C</Col>
             </Col>
             <Col className="pt-3 pb-3 border">
               <Col className="center pt-2 pb-2">La</Col>
-              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
               <Col className="center pt-2 pb-2">0 °C</Col>
             </Col>
             <Col className="pt-3 pb-3 border">
               <Col className="center pt-2 pb-2">Su</Col>
-              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
               <Col className="center pt-2 pb-2">0 °C</Col>
             </Col>
             <Col className="pt-3 pb-3 border">
               <Col className="center pt-2 pb-2">Ma</Col>
-              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
               <Col className="center pt-2 pb-2">0 °C</Col>
             </Col>
             <Col className="pt-3 pb-3 border">
               <Col className="center pt-2 pb-2">Ti</Col>
-              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
               <Col className="center pt-2 pb-2">0 °C</Col>
             </Col>
             <Col className="pt-3 pb-3 border">
               <Col className="center pt-2 pb-2">Ke</Col>
-              <Col className="center pt-2 pb-2"><Image src="/icons/Iconixar/clear.png" /></Col>
+              <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
               <Col className="center pt-2 pb-2">0 °C</Col>
             </Col>
           </Row>
@@ -221,7 +232,7 @@ function Front() {
 function Radar() {
   return (
     <Col fluid="true" className="radar-wrapper rounded pt-3 pb-3">
-      <Image src="/pictures/radar.jpg" fluid />
+      <Image src={radarPic} fluid />
     </Col>
   );
 }
@@ -236,37 +247,32 @@ function ForecastInfo() {
         Meteorologilla täytyy olla myös kattava kokemus sään käyttäytymisestä teoreettisesti ja konkreettisesti, jotta sääennusteen osuvuus olisi mahdollisimman osuva. (Ilmatieteen laitos 2021)</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor tristique nulla, ac pharetra nulla consectetur nec. Proin molestie nisl non tincidunt lacinia. Phasellus lobortis volutpat
           lacus a vulputate. Aenean euismod ipsum id gravida tincidunt. Suspendisse tempor dolor ex, ac fermentum quam cursus at.</p>
-
         <br />
-
         <h5>Säähavainnot</h5>
         <p>Säähavaintoja saadaan erilaisten laitteiden ja teknologioiden ansiosta. Säähavaintoja saadaan esimerkiksi sääluotausasemilta, sääsatelliiteista ja säätutkista. Havaintolaitteista saatu mitattu
           tieto tallennetaan tietokantaan. Meteorologi muokkaa näitä tietoja ja tallentaa muokatut tiedot takaisin tietokantaan. Muokatuista tiedoista luodaan lopulta sääennuste. Säähavaintojen avulla voidaan luoda sääennuste pariksi lähitunniksi. (Ilmatieteen laitos 2021)</p>
         <p>Vestibulum fringilla dapibus ligula sit amet fringilla. Proin elementum cursus massa non iaculis. Cras feugiat, velit eu gravida congue, nibh nulla pretium orci, quis egestas lorem nunc in magna. In varius purus turpis, et posuere augue iaculis id. Duis sit amet suscipit ligula.
           Nunc eget euismod mi. Cras pellentesque, turpis quis vestibulum consectetur, nunc diam scelerisque enim, sit amet imperdiet est dolor sed felis. Nulla nec nibh vestibulum velit molestie congue. Integer fermentum nunc quis arcu posuere, quis elementum ligula dapibus. Integer ut rhoncus ligula. Nam tempus augue tortor, sit amet pellentesque lacus vehicula eu. Sed tincidunt gravida lobortis. Donec mauris sem, porttitor eu mollis in, tempus sed arcu.</p>
         <br />
-
         <h5>Sääennustemallit</h5>
         <p>Sääennustemalleja käytetään lähihetkiennusteihin ja pisimmillään jopa kuukausiennusteihin. Mallien tarkoituksena on laskea ilmakehän tilaa kolmiulotteisesti ajassa eteenpäin.
           Nämä mallit ovat ilmakehän tilaa kuvaavia fysiikan yhtälöitä, joiden laskemiseen tarvitaan tehokkaita supertietokoneita. (Ilmatieteen laitos 2021)</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor tristique nulla, ac pharetra nulla consectetur nec. Proin molestie nisl non tincidunt lacinia. Phasellus lobortis volutpat lacus a vulputate.
           Aenean euismod ipsum id gravida tincidunt. Suspendisse tempor dolor ex, ac fermentum quam cursus at.</p>
-
         <br />
-
         <h5>Meteorologi</h5>
         <p>Meteorologi on sääennusteen laatija, kuka yhdistää saamansa tiedon säähavainnoista ja sääennustemalleista ennusteeksi tulevasta säätilasta.
           Meteorologia tarvitaan varsinkin tilanteissa, joissa havainnoista ja malleista saatavat tiedot eivät riitä sääennustuksen luomiseen. Tällaisia tilanteita on mm. voimakkaat sääilmiöt ja nopeasti muuttuvat sääolosuhteet. (Ilmatieteen laitos 2021)</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor tristique nulla, ac pharetra nulla consectetur nec. Proin molestie nisl non tincidunt lacinia. Phasellus lobortis volutpat lacus a vulputate.
           Aenean euismod ipsum id gravida tincidunt. Suspendisse tempor dolor ex, ac fermentum quam cursus at.</p>
+        <hr />
       </Col>
-
-      <Col className="m">
-        <a href="http://www.ilmatieteenlaitos.fi/saaennuste"><Image className="img-thumbnail border-link border-primary" src="/pictures/forecastinfo.jpg" fluid /></a>
+      <Col className="">
+        <a href="http://www.ilmatieteenlaitos.fi/saaennuste"><Image className="img-thumbnail border-link border-primary mb-3 mt-3" src={forecastinfoPic} fluid /></a>
+        <p>Ilmatieteen laitos</p>
+        <p>http://www.ilmatieteenlaitos.fi/saaennuste</p>
       </Col>
     </Col>
-
-
   );
 }
 
@@ -275,74 +281,62 @@ function About() {
   return (
     <Col fluid="true">
       <Row>
-        <Col fluid="true" className="aboutFirst-wrapper mb-1 pr-5 pl-5 pt-4 pb-4 rounded shadow">
+        <Col fluid="true" className="aboutFirst-wrapper pr-5 pl-5 pt-4 pb-4 rounded shadow">
           <h5>Merkkien selitykset</h5>
           <br />
 
           <Table>
             <tbody>
               <tr>
-                <td><Image src="/icons/Iconixar/clear.png" /></td>
+                <td><Image src={clear} /></td>
                 <td className="align-middle">Aurinkoista</td>
               </tr>
               <tr>
-                <td><Image src="/icons/Iconixar/clouds.png" /></td>
+                <td><Image src={clouds} /></td>
                 <td className="align-middle">Pilvipoutaa / pilvilauttoja</td>
               </tr>
               <tr>
-                <td><Image src="/icons/Iconixar/mist.png" /></td>
+                <td><Image src={mist} /></td>
                 <td className="align-middle">Pilvistä / sumuista</td>
               </tr>
               <tr>
-                <td><Image src="/icons/Iconixar/rain.png" /></td>
+                <td><Image src={rain} /></td>
                 <td className="align-middle">Vesisadetta</td>
               </tr>
               <tr>
-                <td><Image src="/icons/Iconixar/snow.png" /></td>
+                <td><Image src={snow} /></td>
                 <td className="align-middle">Lumisadetta</td>
               </tr>
               <tr>
-                <td><Image src="/icons/Iconixar/thunderstorm.png" /></td>
+                <td><Image src={thunderstorm} /></td>
                 <td className="align-middle">Ukkosta</td>
               </tr>
               <tr>
-                <td><Image src="/icons/Iconixar/night.jpg" /></td>
+                <td><Image src={night} /></td>
                 <td className="align-middle">Yö / pilvetön</td>
               </tr>
             </tbody>
           </Table>
         </Col>
-        <Col fluid="true" className="aboutSecond-wrapper mb-1 pr-5 pl-5 pt-4 pb-4 rounded shadow">
+        <Col fluid="true" className="aboutSecond-wrapper pr-5 pl-5 pt-4 pb-4 rounded shadow">
           <h5>Materiaali</h5>
           <hr />
-
           <h6>Kuvat:</h6>
           <br />
-
-          <p >Säämerkit:</p>
-          <a href="https://www.flaticon.com/authors/iconixar">Flaticon.com - Iconixar</a>
-
-          <br /><br />
-
-          <p>Sadetutka:</p>
-          <a href="https://unsplash.com/photos/qYMlpeQypGU">Unsplash.com - British Libary</a>
-
-          <br /><br />
-
-          <p>Sääennustetietoa:</p>
-          <a href="https://unsplash.com/photos/yZygONrUBe8">Unsplash.com - NASA</a>
-
-          <br /><br />
-
-          <p>Tietoja sivustosta:</p>
-          <a href="https://pixabay.com/fi/photos/pilvi%C3%A4-taivas-s%C3%A4%C3%A4-kumpupilvi%C3%A4-3488632/">Pixabay.com - anncapictures</a>
-
+          <p>Säämerkit: <a href="https://www.flaticon.com/authors/iconixar">Flaticon.com - Iconixar</a></p>
+          <p>Sadetutka: <a href="https://unsplash.com/photos/qYMlpeQypGU">Unsplash.com - British Libary</a></p>
+          <p>Sääennustetietoa: <a href="https://unsplash.com/photos/yZygONrUBe8">Unsplash.com - NASA</a></p>
+          <p>Tietoa sivustosta: <a href="https://pixabay.com/fi/photos/pilvi%C3%A4-taivas-s%C3%A4%C3%A4-kumpupilvi%C3%A4-3488632/">Pixabay.com - anncapictures</a></p>
           <hr />
-
           <h6>Tiedot:</h6>
           <br />
-
           <p>Ilmatieteen laitos 2021, Sääennuste teematietoa. www.ilmatieteenlaitos.fi/saaennuste</p>
+          <hr/>
+          <h6>Yhteystiedot:</h6>
+          <br />
+          <p>Osoite: Tekniikkakatu 12, 00000 Helsinki</p>
+          <p>Puhelin: 555 555 5555</p>
+          <p>Sähköposti: etunimi.sukunimi@esimerkki.com</p>
         </Col>
       </Row>
     </Col>
