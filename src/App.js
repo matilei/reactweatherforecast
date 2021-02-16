@@ -29,10 +29,10 @@ function App() {
             <Sidebar />
             <Col fluid="true" className="wrapper">
               <Switch>
-                <Route exact path="/sadetutka" component={Radar}></Route>
-                <Route exact path="/saaennustetietoa" component={ForecastInfo}></Route>
-                <Route exact path="/tietoasivustosta" component={About}></Route>
-                <Route exact path="/" component={Front}></Route>
+                <Route exact path="/reactweatherforecast/radar" component={Radar}></Route>
+                <Route exact path="/reactweatherforecast/forecastinfo" component={ForecastInfo}></Route>
+                <Route exact path="/reactweatherforecast/about" component={About}></Route>
+                <Route exact path="/reactweatherforecast/frontpage" component={Front}></Route>
               </Switch>
             </Col>
           </Row>
@@ -75,25 +75,25 @@ function Header() {
 
       <Row className="header-secondary pb-3">
         <Col>
-          <NavLink exact to="/" activeClassName="active-header">
+          <NavLink exact to="/reactweatherforecast/frontpage" activeClassName="active-header">
             <ListGroup.Item action className="border text-center text-primary rounded"><h6>Etusivu</h6></ListGroup.Item>
           </NavLink>
         </Col>
 
         <Col>
-          <NavLink exact to="/sadetutka" activeClassName="active-header">
+          <NavLink exact to="/reactweatherforecast/radar" activeClassName="active-header">
             <ListGroup.Item action className="border text-center text-primary rounded"><h6>Sadetutka</h6></ListGroup.Item>
           </NavLink>
         </Col>
 
         <Col>
-          <NavLink exact to="/saaennustetietoa" activeClassName="active-header">
+          <NavLink exact to="/reactweatherforecast/forecastinfo" activeClassName="active-header">
             <ListGroup.Item action className="border text-center text-primary rounded"><h6>Sääennustetietoa</h6></ListGroup.Item>
           </NavLink>
         </Col>
 
         <Col>
-          <NavLink exact to="/tietoasivustosta" activeClassName="active-header">
+          <NavLink exact to="/reactweatherforecast/about" activeClassName="active-header">
             <ListGroup.Item action className="border text-center text-primary rounded"><h6>Tietoa sivustosta</h6></ListGroup.Item>
           </NavLink>
         </Col>
@@ -103,26 +103,25 @@ function Header() {
   );
 }
 
-//Toimii sivuston sivupalkkina
 function Sidebar() {
 
   return (
     <Col className="sidebar mr-3" lg={2.5}>
       <Row className="sidebar-navigation">
         <ListGroup className="mb-5 ml-5 mr-5 shadow">
-          <NavLink exact to="/" activeClassName="active-sidebar">
+          <NavLink exact to="/reactweatherforecast/frontpage" activeClassName="active-sidebar">
             <ListGroup.Item className="mr-5 rounded text-primary" action><h6>Etusivu</h6></ListGroup.Item>
           </NavLink>
 
-          <NavLink exact to="/sadetutka" activeClassName="active-sidebar">
+          <NavLink exact to="/reactweatherforecast/radar" activeClassName="active-sidebar">
             <ListGroup.Item className="mr-5 rounded text-primary" action><h6>Sadetutka</h6></ListGroup.Item>
           </NavLink>
 
-          <NavLink exact to="/saaennustetietoa" activeClassName="active-sidebar">
+          <NavLink exact to="/reactweatherforecast/forecastinfo" activeClassName="active-sidebar">
             <ListGroup.Item className="mr-5 rounded text-primary" action><h6>Sääennustetietoa</h6></ListGroup.Item>
           </NavLink>
 
-          <NavLink exact to="/tietoasivustosta" activeClassName="active-sidebar">
+          <NavLink exact to="/reactweatherforecast/about" activeClassName="active-sidebar">
             <ListGroup.Item className="mr-5 rounded text-primary" action><h6>Tietoa sivustosta</h6></ListGroup.Item>
           </NavLink>
         </ListGroup>
@@ -131,7 +130,6 @@ function Sidebar() {
   );
 }
 
-//Etusivu
 function Front() {
   const { city, setCity } = useContext(CityContext);
 
@@ -243,7 +241,6 @@ function Front() {
   );
 }
 
-//Sadetutka
 function Radar() {
   return (
     <Image className="shadow rounded border border-secondary" src={radarPic} fluid />
