@@ -32,7 +32,7 @@ function App() {
                 <Route exact path="/reactweatherforecast/radar" component={Radar}></Route>
                 <Route exact path="/reactweatherforecast/forecastinfo" component={ForecastInfo}></Route>
                 <Route exact path="/reactweatherforecast/about" component={About}></Route>
-                <Route exact path="/reactweatherforecast/frontpage" component={Front}></Route>
+                <Route exact path="/reactweatherforecast/" component={Front}></Route>
               </Switch>
             </Col>
           </Row>
@@ -75,7 +75,7 @@ function Header() {
 
       <Row className="header-secondary pb-3">
         <Col>
-          <NavLink exact to="/reactweatherforecast/frontpage" activeClassName="active-header">
+          <NavLink exact to="/reactweatherforecast/" activeClassName="active-header">
             <ListGroup.Item action className="border text-center text-primary rounded"><h6>Etusivu</h6></ListGroup.Item>
           </NavLink>
         </Col>
@@ -109,7 +109,7 @@ function Sidebar() {
     <Col className="sidebar mr-3" lg={2.5}>
       <Row className="sidebar-navigation">
         <ListGroup className="mb-5 ml-5 mr-5 shadow">
-          <NavLink exact to="/reactweatherforecast/frontpage" activeClassName="active-sidebar">
+          <NavLink exact to="/reactweatherforecast/" activeClassName="active-sidebar">
             <ListGroup.Item className="mr-5 rounded text-primary" action><h6>Etusivu</h6></ListGroup.Item>
           </NavLink>
 
