@@ -1,38 +1,61 @@
 body { 
-    background: url(pictures/about.jpg) fixed;
+    background-image: linear-gradient(#ffffff80, #ffffff80), url("./pictures/about.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
   }
 
-.header{
+.header {
     background-color: #e0e0e0;
 }
 
-.border-link{
+.inputSearch {
+    height: 45px;
+}
+
+/* Italic input-placeholder */
+::-webkit-input-placeholder {
+    font-style: italic;
+ }
+ :-moz-placeholder {
+    font-style: italic;  
+ }
+ ::-moz-placeholder {
+    font-style: italic;  
+ }
+ :-ms-input-placeholder {  
+    font-style: italic; 
+ }
+
+a:hover {
+    text-decoration: none;
+} 
+.border-link {
+    padding: 0;
     border-style: solid;
-    border-width: 3px;
+    border-width: 2px;
     width: 350px;
 }
 
-.border-link:hover{
-    opacity: 0.8;
+.border-link:hover {
+    opacity: 0.75;
 }
 
-.active-sidebar{
-    border-left: 5px solid #5d5dff;
+.active-sidebar {
+    border-left: 5px solid #4646ff;
 }
 
-.center{
+.center {
     display: flex;
     justify-content:  center;
     align-items: center;
 }
 
+/* Wrapper background color */
 .cityName-wrapper, .dayForecast-wrapper, .weekForecast-wrapper,
 .radar-wrapper, .forecastInfo-wrapper, .aboutFirst-wrapper, 
-.aboutSecond-wrapper, .sidebar-space{
+.aboutSecond-wrapper, .sidebar-space {
     background: white;
 }
 
@@ -40,22 +63,22 @@ body {
     MEDIA
   ----------------------------------------------------- */
 @media only screen and (max-width: 1250px) {
-    .sidebar, .header-paddingFront, .header-paddingBack{
+    .sidebar, .header-paddingFront, .header-paddingBack {
         display: none
     }
 
-    .header-secondary{
+    .header-secondary {
         display:flex;
     }
 
-    .content-wrapper{
+    .content-wrapper {
         margin-top: 3rem;
         margin-bottom: 3rem;
         margin-left: 1rem;
         margin-right: 1rem;
     }
 
-    .aboutFirst-wrapper, .aboutSecond-wrapper{
+    .aboutFirst-wrapper, .aboutSecond-wrapper {
         margin-bottom: 1rem;
         margin-left: 1rem;
         margin-right: 1rem;
@@ -67,14 +90,14 @@ body {
         display: none;
     }
 
-    .content-wrapper{
+    .content-wrapper {
         margin-top: 3rem;
         margin-bottom: 3rem;
         margin-left: 3rem;
         margin-right: 3rem;
     }
 
-    .aboutFirst-wrapper{
+    .aboutFirst-wrapper {
         margin-right: 3rem;
     }
 }

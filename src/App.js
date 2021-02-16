@@ -1,10 +1,10 @@
-import { React } from 'react';
-import { Container, Row, Col, Button, Navbar, InputGroup, FormControl, ListGroup, Image, Table } from 'react-bootstrap';
+import { React, useState, useMemo, useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import { Container, Row, Col, Button, InputGroup, ListGroup, Image, Table, Form } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-dom";
-
+import { CityContext } from './Context';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
-
 import radarPic from './pictures/radar.jpg';
 import forecastinfoPic from './pictures/forecastinfo.jpg';
 import clear from './Iconixar/clear.png';
@@ -17,71 +17,84 @@ import thunderstorm from './Iconixar/thunderstorm.png';
 
 //Toimii sivun ympäryksenä, Switch näyttää painetun alasivun
 function App() {
+  const [city, setCity] = useState({});
+  const CityProvider = useMemo(() => ({ city, setCity }));
 
   return (
-    <Container fluid="true" className="page-wrapper">
-      <Router>
-        <Header />
-        <Row fluid="true" className="content-wrapper">
-          <Sidebar />
-          <Col fluid="true" className="wrapper">
-            <Switch>
-              <Route exact path="/sadetutka" component={Radar}></Route>
-              <Route exact path="/saaennustetietoa" component={ForecastInfo}></Route>
-              <Route exact path="/tietoasivustosta" component={About}></Route>
-              <Route exact path="/" component={Front}></Route>
-            </Switch>
-          </Col>
-        </Row>
-      </Router>
-    </Container>
+    <CityContext.Provider value={CityProvider}>
+      <Container fluid="true" className="page-wrapper">
+        <Router>
+          <Header />
+          <Row fluid="true" className="content-wrapper">
+            <Sidebar />
+            <Col fluid="true" className="wrapper">
+              <Switch>
+                <Route exact path="/sadetutka" component={Radar}></Route>
+                <Route exact path="/saaennustetietoa" component={ForecastInfo}></Route>
+                <Route exact path="/tietoasivustosta" component={About}></Route>
+                <Route exact path="/" component={Front}></Route>
+              </Switch>
+            </Col>
+          </Row>
+        </Router>
+      </Container>
+    </CityContext.Provider>
   );
 }
 
-//onChange={event => "setCity(event.target.value)"}
 //Toimii sivun yläpalkkina
 function Header() {
+  const { city, setCity } = useContext(CityContext);
+
+  const { searchCity, handleSubmit } = useForm();
+  const onSubmit = data => {
+    console.log(JSON.stringify(data));
+    console.log(city);
+  };
+
   return (
     <Container fluid className="header shadow">
       <Row>
         <Col className="header-paddingFront"></Col>
-        <Col>
-          <Navbar className="py-3">
-            <InputGroup className="inputSearch">
-              <FormControl
-                placeholder="Hae kaupungin sääennuste"
-                style={{ fontStyle: "italic" }} />
+        <Col className="header-search">
+          <Form className="py-3" onSubmit={handleSubmit(onSubmit)}>
+            <InputGroup>
+              <Form.Control className="inputSearch" name='cityName' type="text" ref={searchCity} placeholder="Hae kaupungin sääennuste" onChange={(e) => setCity(e.target.value)}></Form.Control>
               <InputGroup.Append>
-                <Button >Button</Button>
+                <Button type="submit">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" className="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                  </svg>
+                </Button>
               </InputGroup.Append>
             </InputGroup>
-          </Navbar>
+          </Form>
         </Col>
         <Col className="header-paddingBack"></Col>
       </Row>
 
-      <Row className="header-secondary pb-2">
+      <Row className="header-secondary pb-3">
         <Col>
           <NavLink exact to="/" activeClassName="active-header">
-            <ListGroup.Item action className="border text-center text-primary rounded">Etusivu</ListGroup.Item>
+            <ListGroup.Item action className="border text-center text-primary rounded"><h6>Etusivu</h6></ListGroup.Item>
           </NavLink>
         </Col>
 
         <Col>
           <NavLink exact to="/sadetutka" activeClassName="active-header">
-            <ListGroup.Item action className="border text-center text-primary rounded">Sadetutka</ListGroup.Item>
+            <ListGroup.Item action className="border text-center text-primary rounded"><h6>Sadetutka</h6></ListGroup.Item>
           </NavLink>
         </Col>
 
         <Col>
           <NavLink exact to="/saaennustetietoa" activeClassName="active-header">
-            <ListGroup.Item action className="border text-center text-primary rounded">Sääennustetietoa</ListGroup.Item>
+            <ListGroup.Item action className="border text-center text-primary rounded"><h6>Sääennustetietoa</h6></ListGroup.Item>
           </NavLink>
         </Col>
 
         <Col>
           <NavLink exact to="/tietoasivustosta" activeClassName="active-header">
-            <ListGroup.Item action className="border text-center text-primary rounded">Tietoa sivustosta</ListGroup.Item>
+            <ListGroup.Item action className="border text-center text-primary rounded"><h6>Tietoa sivustosta</h6></ListGroup.Item>
           </NavLink>
         </Col>
       </Row>
@@ -98,19 +111,19 @@ function Sidebar() {
       <Row className="sidebar-navigation">
         <ListGroup className="mb-5 ml-5 mr-5 shadow">
           <NavLink exact to="/" activeClassName="active-sidebar">
-            <ListGroup.Item className="mr-5 rounded text-primary" action >Etusivu</ListGroup.Item>
+            <ListGroup.Item className="mr-5 rounded text-primary" action><h6>Etusivu</h6></ListGroup.Item>
           </NavLink>
 
           <NavLink exact to="/sadetutka" activeClassName="active-sidebar">
-            <ListGroup.Item className="mr-5 rounded text-primary" action >Sadetutka</ListGroup.Item>
+            <ListGroup.Item className="mr-5 rounded text-primary" action><h6>Sadetutka</h6></ListGroup.Item>
           </NavLink>
 
           <NavLink exact to="/saaennustetietoa" activeClassName="active-sidebar">
-            <ListGroup.Item className="mr-5 rounded text-primary" action >Sääennustetietoa</ListGroup.Item>
+            <ListGroup.Item className="mr-5 rounded text-primary" action><h6>Sääennustetietoa</h6></ListGroup.Item>
           </NavLink>
 
           <NavLink exact to="/tietoasivustosta" activeClassName="active-sidebar">
-            <ListGroup.Item className="mr-5 rounded text-primary" action >Tietoa sivustosta</ListGroup.Item>
+            <ListGroup.Item className="mr-5 rounded text-primary" action><h6>Tietoa sivustosta</h6></ListGroup.Item>
           </NavLink>
         </ListGroup>
       </Row>
@@ -120,6 +133,8 @@ function Sidebar() {
 
 //Etusivu
 function Front() {
+  const { city, setCity } = useContext(CityContext);
+
   return (
     <Col fluid="true" className="front-wrapper">
 
@@ -131,7 +146,7 @@ function Front() {
 
       <Row className="dayForecast-wrapper rounded mb-4 shadow">
         <Col >
-          <h6 className="pt-3 pb-1 ml-2">Tiistai 26.1 - Tuntiennuste</h6>
+          <h5 className="pt-3 pb-1 ml-2">Tiistai 26.1 - Tuntiennuste</h5>
           <Row className="my-4 pr-4 pl-4">
             <Col className="pt-3 pb-3 border">
               <Col className="center pt-2 pb-2"><Image src={clear} /></Col>
@@ -179,7 +194,7 @@ function Front() {
 
       <Row className="weekForecast-wrapper rounded shadow">
         <Col>
-          <h6 className="pt-3 pb-1 ml-2">Lähipäivien ennuste</h6>
+          <h5 className="pt-3 pb-1 ml-2">Lähipäivien ennuste</h5>
           <Row className="my-4 pr-4 pl-4">
             <Col className="pt-3 pb-3 border">
               <Col className="center pt-2 pb-2">Ke</Col>
@@ -231,9 +246,7 @@ function Front() {
 //Sadetutka
 function Radar() {
   return (
-    <Col fluid="true" className="radar-wrapper rounded pt-3 pb-3">
-      <Image src={radarPic} fluid />
-    </Col>
+    <Image className="shadow rounded border border-secondary" src={radarPic} fluid />
   );
 }
 
@@ -267,10 +280,21 @@ function ForecastInfo() {
           Aenean euismod ipsum id gravida tincidunt. Suspendisse tempor dolor ex, ac fermentum quam cursus at.</p>
         <hr />
       </Col>
-      <Col className="">
-        <a href="http://www.ilmatieteenlaitos.fi/saaennuste"><Image className="img-thumbnail border-link border-primary mb-3 mt-3" src={forecastinfoPic} fluid /></a>
-        <p>Ilmatieteen laitos</p>
-        <p>http://www.ilmatieteenlaitos.fi/saaennuste</p>
+      <Col>
+        <p>Lisätietoa:</p>
+        <a href="http://www.ilmatieteenlaitos.fi/saaennuste">
+          <Col className="img-thumbnail border-link border-primary p-0">
+            <a href="http://www.ilmatieteenlaitos.fi/saaennuste"><Image src={forecastinfoPic} fluid />
+              <p className="pl-2 pt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+                  <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z" />
+                  <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z" />
+                </svg>
+                ilmatieteenlaitos.fi
+              </p>
+            </a>
+          </Col>
+        </a>
       </Col>
     </Col>
   );
@@ -284,7 +308,6 @@ function About() {
         <Col fluid="true" className="aboutFirst-wrapper pr-5 pl-5 pt-4 pb-4 rounded shadow">
           <h5>Merkkien selitykset</h5>
           <br />
-
           <Table>
             <tbody>
               <tr>
@@ -319,19 +342,19 @@ function About() {
           </Table>
         </Col>
         <Col fluid="true" className="aboutSecond-wrapper pr-5 pl-5 pt-4 pb-4 rounded shadow">
-          <h5>Materiaali</h5>
+          <h5>Tiedot</h5>
           <hr />
           <h6>Kuvat:</h6>
           <br />
           <p>Säämerkit: <a href="https://www.flaticon.com/authors/iconixar">Flaticon.com - Iconixar</a></p>
           <p>Sadetutka: <a href="https://unsplash.com/photos/qYMlpeQypGU">Unsplash.com - British Libary</a></p>
           <p>Sääennustetietoa: <a href="https://unsplash.com/photos/yZygONrUBe8">Unsplash.com - NASA</a></p>
-          <p>Tietoa sivustosta: <a href="https://pixabay.com/fi/photos/pilvi%C3%A4-taivas-s%C3%A4%C3%A4-kumpupilvi%C3%A4-3488632/">Pixabay.com - anncapictures</a></p>
+          <p>Taustakuva: <a href="https://pixabay.com/fi/photos/pilvi%C3%A4-taivas-s%C3%A4%C3%A4-kumpupilvi%C3%A4-3488632/">Pixabay.com - anncapictures</a></p>
           <hr />
-          <h6>Tiedot:</h6>
+          <h6>Teematietoa:</h6>
           <br />
           <p>Ilmatieteen laitos 2021, Sääennuste teematietoa. www.ilmatieteenlaitos.fi/saaennuste</p>
-          <hr/>
+          <hr />
           <h6>Yhteystiedot:</h6>
           <br />
           <p>Osoite: Tekniikkakatu 12, 00000 Helsinki</p>
