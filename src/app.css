@@ -54,7 +54,7 @@ a:hover {
 
 /* Wrapper background color */
 .cityName-wrapper, .dayForecast-wrapper, .weekForecast-wrapper,
-.radar-wrapper, .forecastInfo-wrapper, .aboutFirst-wrapper, 
+.radar-wrapper, .map-wrapper, .forecastInfo-wrapper, .aboutFirst-wrapper, 
 .aboutSecond-wrapper, .sidebar-space {
     background: white;
 }
@@ -62,7 +62,7 @@ a:hover {
 /* ---------------------------------------------------
     MEDIA
   ----------------------------------------------------- */
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 1200px) {
     .sidebar, .header-paddingFront, .header-paddingBack {
         display: none
     }
@@ -85,7 +85,7 @@ a:hover {
     }
   }
 
-@media only screen and (min-width: 1250px) {
+@media only screen and (min-width: 1200px) {
     .header-secondary{
         display: none;
     }
