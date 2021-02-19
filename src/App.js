@@ -1,12 +1,12 @@
-import { React, useState, useMemo, useContext } from 'react';
+import { React } from 'react';
 import { Container, Row, Col, Button, InputGroup, ListGroup, Image, Table, Form } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-dom";
-import { CityContext } from './Context';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 import radarPic from './pictures/radar.jpg';
 import forecastinfoPic from './pictures/forecastinfo.jpg';
-
+import antenna from './pictures/antenna.jpg';
+import video from './videos/video.mp4';
 import clear from './Iconixar/clear.png';
 import clouds from './Iconixar/clouds.png';
 import mist from './Iconixar/mist.png';
@@ -17,37 +17,31 @@ import thunderstorm from './Iconixar/thunderstorm.png';
 
 //Toimii sivun ympäryksenä, Switch näyttää painetun alasivun
 function App() {
-  const [city, setCity] = useState({});
-  const CityProvider = useMemo(() => ({ city, setCity }));
 
   return (
-    <CityContext.Provider value={CityProvider}>
-      <Container fluid="true" className="page-wrapper">
-        <Router>
-          <Header />
-          <Row fluid="true" className="content-wrapper">
-            <Col xl={1}></Col>
-            <Sidebar />
-            <Col fluid="true" className="wrapper">
-              <Switch>
-                <Route exact path="/reactweatherforecast/radar" component={Radar}></Route>
-                <Route exact path="/reactweatherforecast/forecastinfo" component={ForecastInfo}></Route>
-                <Route exact path="/reactweatherforecast/about" component={About}></Route>
-                <Route exact path="/reactweatherforecast/" component={Front}></Route>
-              </Switch>
-            </Col>
-            <Col xl={1}></Col>
-          </Row>
-        </Router>
-      </Container>
-    </CityContext.Provider>
+    <Container fluid="true" className="page-wrapper">
+      <Router>
+        <Header />
+        <Row fluid="true" className="content-wrapper">
+          <Col xl={1}></Col>
+          <Sidebar />
+          <Col fluid="true" className="wrapper">
+            <Switch>
+              <Route exact path="/reactweatherforecast/radar" component={Radar}></Route>
+              <Route exact path="/reactweatherforecast/forecastinfo" component={ForecastInfo}></Route>
+              <Route exact path="/reactweatherforecast/about" component={About}></Route>
+              <Route exact path="/reactweatherforecast/" component={Front}></Route>
+            </Switch>
+          </Col>
+          <Col xl={1}></Col>
+        </Row>
+      </Router>
+    </Container>
   );
 }
 
 //Toimii sivun yläpalkkina
 function Header() {
-  const { city, setCity } = useContext(CityContext);
-  const [input, setInput] = useState("");
 
   return (
     <Container fluid className="header shadow">
@@ -56,7 +50,7 @@ function Header() {
         <Col className="header-search">
           <Form className="py-3" >
             <InputGroup>
-              <Form.Control className="inputSearch" name='cityName' type="text" placeholder="Hae kaupungin sääennuste" onChange={(e) => setInput(e.target.value)}></Form.Control>
+              <Form.Control className="inputSearch" name='cityName' type="text" placeholder="Hae kaupungin sääennuste"></Form.Control>
               <InputGroup.Append>
                 <Button>
                   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" className="bi bi-search" viewBox="0 0 16 16">
@@ -72,25 +66,25 @@ function Header() {
 
       <Row className="header-secondary pb-3">
         <Col>
-          <NavLink exact to="/reactweatherforecast/" activeClassName="active-header">
+          <NavLink exact to="/reactweatherforecast/">
             <ListGroup.Item action className="border text-center text-primary rounded"><h6>Etusivu</h6></ListGroup.Item>
           </NavLink>
         </Col>
 
         <Col>
-          <NavLink exact to="/reactweatherforecast/radar" activeClassName="active-header">
+          <NavLink exact to="/reactweatherforecast/radar" >
             <ListGroup.Item action className="border text-center text-primary rounded"><h6>Sadetutka</h6></ListGroup.Item>
           </NavLink>
         </Col>
 
         <Col>
-          <NavLink exact to="/reactweatherforecast/forecastinfo" activeClassName="active-header">
+          <NavLink exact to="/reactweatherforecast/forecastinfo" >
             <ListGroup.Item action className="border text-center text-primary rounded"><h6>Sääennustetietoa</h6></ListGroup.Item>
           </NavLink>
         </Col>
 
         <Col>
-          <NavLink exact to="/reactweatherforecast/about" activeClassName="active-header">
+          <NavLink exact to="/reactweatherforecast/about" >
             <ListGroup.Item action className="border text-center text-primary rounded"><h6>Tietoa sivustosta</h6></ListGroup.Item>
           </NavLink>
         </Col>
@@ -248,8 +242,13 @@ function Radar() {
       </Row>
 
       <Row>
-        <Col xl={11} className="radar-wrapper rounded mb-4">
-          <h4 className="pt-3 pb-3 ml-4">Kartta</h4>
+        <Col xl={11} className="radar-wrapper rounded mb-4 pb-3">
+          <h4 className="pt-3 pb-3 ml-4">Kelikameravideo</h4>
+          <video className="p-3 img-fluid" width="1050" controls>
+            <source src={video} type="video/mp4" />
+                Your browser does not support the video tag.
+          </video>
+          <a className="ml-3" href="http://www.videezy.com/">Additional Stock Footage Provided By Videezy!</a>
         </Col>
       </Row>
     </Col>
@@ -259,7 +258,7 @@ function Radar() {
 //Sääennustetietoa
 function ForecastInfo() {
   return (
-    <Col fluid="true" className="forecastInfo-wrapper mb-5 pr-5 pl-5 pt-4 pb-4 rounded shadow">
+    <Col xl={11} fluid="true" className="forecastInfo-wrapper mb-5 pr-5 pl-5 pt-4 pb-4 rounded shadow">
       <Row>
         <Col>
           <h3>Sääennustetietoa</h3>
@@ -352,16 +351,19 @@ function About() {
               </tr>
             </tbody>
           </Table>
+          <hr />
         </Col>
         <Col fluid="true" className="aboutSecond-wrapper pr-5 pl-5 pt-4 pb-4 rounded shadow">
           <h4>Sisältö</h4>
           <hr />
-          <h6>Kuvat:</h6>
+          <h6>Multimedia:</h6>
           <br />
           <p>Säämerkit: <a href="https://www.flaticon.com/authors/iconixar">Flaticon.com - Iconixar</a></p>
-          <p>Sadetutka: <a href="https://unsplash.com/photos/qYMlpeQypGU">Unsplash.com - British Libary</a></p>
+          <p>Sadetutka-kuva: <a href="https://unsplash.com/photos/qYMlpeQypGU">Unsplash.com - British Libary</a></p>
+          <p>Sadetutka-video: <a href="https://www.videezy.com/abstract/48227-a-low-shot-of-a-snowy-path">Videezy.com</a></p>
           <p>Sääennustetietoa: <a href="https://unsplash.com/photos/yZygONrUBe8">Unsplash.com - NASA</a></p>
           <p>Taustakuva: <a href="https://pixabay.com/fi/photos/pilvi%C3%A4-taivas-s%C3%A4%C3%A4-kumpupilvi%C3%A4-3488632/">Pixabay.com - anncapictures</a></p>
+          <p>Yhteystiedot-kuva: <a href="https://pixabay.com/fi/photos/antenni-l%C3%A4het%C3%A4-j%C3%A4rjestelm%C3%A4-4179268/">Pixabay.com - u_dg9i01w5</a></p>
           <hr />
           <h6>Teematietoa:</h6>
           <br />
@@ -372,6 +374,7 @@ function About() {
           <p>Osoite: Tekniikkakatu 12, 00000 Helsinki</p>
           <p>Puhelin: +358 555 5555</p>
           <p>Sähköposti: etunimi.sukunimi@esimerkki.com</p>
+          <Image className="rounded my-3" src={antenna} fluid />
         </Col>
       </Row>
     </Col>
