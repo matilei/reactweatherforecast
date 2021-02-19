@@ -180,7 +180,7 @@ function Front() {
         </Col>
       </Row>
 
-      <Row className="weekForecast-wrapper rounded shadow">
+      <Row className="weekForecast-wrapper rounded shadow mb-5">
         <Col>
           <h5 className="pt-3 pb-1 ml-2">Lähipäivien ennuste</h5>
           <Row className="my-4 pr-4 pl-4">

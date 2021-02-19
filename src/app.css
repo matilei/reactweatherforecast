@@ -77,9 +77,8 @@ a:hover {
         margin-left: 1rem;
         margin-right: 1rem;
     }
-
-    .aboutFirst-wrapper, .aboutSecond-wrapper {
-        margin-bottom: 1rem;
+    .aboutFirst-wrapper{
+        margin-bottom: 2rem;
     }
   }
 
@@ -94,9 +93,14 @@ a:hover {
         margin-left: 3rem;
         margin-right: 3rem;
     }
-
-    .aboutFirst-wrapper {
+    .aboutFirst-wrapper{
         margin-right: 3rem;
+        margin-bottom: 3rem;
     }
 }
 
+@media only screen and (min-width: 720px) {
+    .aboutFirst-wrapper{
+        margin-right: 2rem;
+    }
+}
