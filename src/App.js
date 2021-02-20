@@ -1,6 +1,6 @@
 import { React } from 'react';
 import { Container, Row, Col, Button, InputGroup, ListGroup, Image, Table, Form } from 'react-bootstrap';
-import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-dom";
+import { HashRouter as Router, Switch, Route, NavLink } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 import radarPic from './pictures/radar.jpg';
@@ -27,10 +27,10 @@ function App() {
           <Sidebar />
           <Col fluid="true" className="wrapper">
             <Switch>
-              <Route exact path="/reactweatherforecast/radar" component={Radar}></Route>
-              <Route exact path="/reactweatherforecast/forecastinfo" component={ForecastInfo}></Route>
-              <Route exact path="/reactweatherforecast/about" component={About}></Route>
-              <Route exact path="/reactweatherforecast/" component={Front}></Route>
+              <Route exact path="/radar" component={Radar}></Route>
+              <Route exact path="/forecastinfo" component={ForecastInfo}></Route>
+              <Route exact path="/about" component={About}></Route>
+              <Route exact path="/" component={Front}></Route>
             </Switch>
           </Col>
           <Col xl={1}></Col>
@@ -66,25 +66,25 @@ function Header() {
 
       <Row className="header-secondary pb-3">
         <Col>
-          <NavLink exact to="/reactweatherforecast/">
+          <NavLink exact to="/">
             <ListGroup.Item action className="border text-center text-primary rounded"><h6>Etusivu</h6></ListGroup.Item>
           </NavLink>
         </Col>
 
         <Col>
-          <NavLink exact to="/reactweatherforecast/radar" >
+          <NavLink exact to="/radar" >
             <ListGroup.Item action className="border text-center text-primary rounded"><h6>Sadetutka</h6></ListGroup.Item>
           </NavLink>
         </Col>
 
         <Col>
-          <NavLink exact to="/reactweatherforecast/forecastinfo" >
+          <NavLink exact to="/forecastinfo" >
             <ListGroup.Item action className="border text-center text-primary rounded"><h6>Sääennustetietoa</h6></ListGroup.Item>
           </NavLink>
         </Col>
 
         <Col>
-          <NavLink exact to="/reactweatherforecast/about" >
+          <NavLink exact to="/about" >
             <ListGroup.Item action className="border text-center text-primary rounded"><h6>Tietoa sivustosta</h6></ListGroup.Item>
           </NavLink>
         </Col>
@@ -100,19 +100,19 @@ function Sidebar() {
     <Col className="sidebar mr-3" xl={2.5}>
       <Row className="sidebar-navigation">
         <ListGroup className="mb-5 ml-5 mr-5 shadow">
-          <NavLink exact to="/reactweatherforecast/" activeClassName="active-sidebar">
+          <NavLink exact to="/" activeClassName="active-sidebar">
             <ListGroup.Item className="mr-5 rounded text-primary" action><h6>Etusivu</h6></ListGroup.Item>
           </NavLink>
 
-          <NavLink exact to="/reactweatherforecast/radar" activeClassName="active-sidebar">
+          <NavLink exact to="/radar" activeClassName="active-sidebar">
             <ListGroup.Item className="mr-5 rounded text-primary" action><h6>Sadetutka</h6></ListGroup.Item>
           </NavLink>
 
-          <NavLink exact to="/reactweatherforecast/forecastinfo" activeClassName="active-sidebar">
+          <NavLink exact to="/forecastinfo" activeClassName="active-sidebar">
             <ListGroup.Item className="mr-5 rounded text-primary" action><h6>Sääennustetietoa</h6></ListGroup.Item>
           </NavLink>
 
-          <NavLink exact to="/reactweatherforecast/about" activeClassName="active-sidebar">
+          <NavLink exact to="/about" activeClassName="active-sidebar">
             <ListGroup.Item className="mr-5 rounded text-primary" action><h6>Tietoa sivustosta</h6></ListGroup.Item>
           </NavLink>
         </ListGroup>
