@@ -43,25 +43,37 @@ function Header({ onSearch }) {
             <Row className="header-secondary pb-3">
                 <Col>
                     <NavLink exact to="/">
-                        <ListGroup.Item action className="border text-center text-primary rounded"><h6>Home</h6></ListGroup.Item>
+                        <ListGroup.Item action 
+                            className="border text-center text-primary rounded">
+                            <h6>Home</h6>
+                        </ListGroup.Item>
                     </NavLink>
                 </Col>
 
                 <Col>
                     <NavLink exact to="/radar" >
-                        <ListGroup.Item action className="border text-center text-primary rounded"><h6>Radar</h6></ListGroup.Item>
+                        <ListGroup.Item action 
+                        className="border text-center text-primary rounded">
+                            <h6>Radar</h6>
+                        </ListGroup.Item>
                     </NavLink>
                 </Col>
 
                 <Col>
                     <NavLink exact to="/forecastinfo" >
-                        <ListGroup.Item action className="border text-center text-primary rounded"><h6>Forecast Info</h6></ListGroup.Item>
+                        <ListGroup.Item action 
+                        className="border text-center text-primary rounded">
+                            <h6>Forecast Info</h6>
+                        </ListGroup.Item>
                     </NavLink>
                 </Col>
 
                 <Col>
                     <NavLink exact to="/about" >
-                        <ListGroup.Item action className="border text-center text-primary rounded"><h6>About</h6></ListGroup.Item>
+                        <ListGroup.Item action 
+                        className="border text-center text-primary rounded">
+                            <h6>About</h6>
+                        </ListGroup.Item>
                     </NavLink>
                 </Col>
             </Row>
