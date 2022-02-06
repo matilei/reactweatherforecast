@@ -1,11 +1,11 @@
 import React from 'react';
 import { Col, Row, Image } from 'react-bootstrap';
 
-function DayForecast() {
+function WeekForecast() {
     return (
         <Row className="weekForecast-wrapper rounded shadow mb-5">
             <Col>
-                <h5 className="pt-3 pb-1 ml-2">Daily Forecast</h5>
+                <h5 className="pt-3 pb-1 ml-2">Daily Forecast - Next 7 Days</h5>
                 <Row className="my-4 pr-4 pl-4">
                     <Col className="pt-3 pb-3 border">
                         <Col className="center pt-2 pb-2">To 18.2</Col>
@@ -20,4 +20,4 @@ function DayForecast() {
     );
 }
 
-export default DayForecast;
+export default WeekForecast;

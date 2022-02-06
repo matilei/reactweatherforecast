@@ -1,4 +1,3 @@
-
 export async function fmi(city, setForecast) {
     var parseString = require('xml2js').parseString;
     await fetch(
@@ -16,7 +15,5 @@ export async function fmi(city, setForecast) {
         }))
         .catch((error) => {
             console.log(error);
-        }); 
-        
-        
+        });
 }

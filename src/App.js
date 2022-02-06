@@ -13,17 +13,18 @@ import { fmi } from './api/fmi';
 
 function App() {
 
-
   const [template, setTemplate] = useState();
   const [forecast, setForecast] = useState();
+  const [searchTerm, setSearchTerm] = useState();
 
   //Template forecast when opening the app
   useEffect(() => {
     fmi("Helsinki", setTemplate);
-  },[])
+  }, [])
 
   //User made search from Header input
   const onSearchSubmit = (userSearchTerm) => {
+    setSearchTerm(userSearchTerm);
     fmi(userSearchTerm, setForecast);
   }
 
@@ -37,7 +38,9 @@ function App() {
           <Col fluid="true" className="wrapper">
             <Switch>
               <Route exact path="/" >
-                <Front userSearchData={forecast} templateSearchData={template}/>
+                <Front userSearchData={forecast} 
+                templateSearchData={template}
+                searchTerm={searchTerm} />
               </Route>
               <Route exact path="/radar">
                 <Radar />
