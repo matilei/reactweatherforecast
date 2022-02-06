@@ -6,4 +6,4 @@ Originally made in spring 2021 as a course project. The goal was to make a respo
 
 1. Run `git clone https://github.com/matilei/reactweatherforecast.git` on your desired local folder command prompt.
 2. Run `npm install` on /reactweatherforecast -folder command prompt.
-3. Run `npm start` on /reactweatherforecast -folder command prompt to open the server on [localhost:3000](localhost:3000).
+3. Run `npm start` on /reactweatherforecast -folder command prompt to open the server on [localhost:3000](https://localhost:3000).
